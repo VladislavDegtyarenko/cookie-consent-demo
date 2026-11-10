@@ -26,7 +26,7 @@ Open the URL printed by `pnpm preview`. The files in `out/` can be hosted by any
 
 The **Static preview** workflow runs on pull requests and pushes to `main`. You can also start it from **Actions > Static preview > Run workflow**. The workflow checks Biome and TypeScript, builds the site, runs the Playwright suite, and saves the static files as the `cookie-consent-preview` artifact for 14 days.
 
-To view a build, download the artifact from the workflow run, extract it, and run this command from the directory containing `index.html`:
+To view a build, download the artifact from the workflow run, extract it, and run this command from the directory containing `index.html`.
 
 ```sh
 python3 -m http.server 4173
@@ -42,7 +42,7 @@ Open [http://localhost:4173](http://localhost:4173). The artifact is a downloada
 4. Turn **Analytics** off and save. The test cookie disappears, the event button is disabled, and **Live status** reports the withdrawal. Clear the Network log and reload to confirm there is no new script request.
 5. Enable **Analytics** again and send one event. The count rises by exactly one. Within the same page, the browser can reuse the loaded script.
 
-To run the checks locally:
+You can also run the checks locally.
 
 ```sh
 pnpm check:biome
