@@ -1,6 +1,6 @@
 # Cookie Consent Demo
 
-A one-page Next.js demo that shows how a site remembers a cookie choice and starts or stops optional analytics. The local analytics script processes sample events in the browser. The build exports an entirely static site.
+A one-page Next.js demo that shows how a site remembers a cookie choice and starts or stops optional analytics. The local analytics script processes sample events in the browser. The build exports an entirely static site. [Open the live demo](https://vladislavdegtyarenko.github.io/cookie-consent-demo/).
 
 ## Run locally
 
@@ -20,11 +20,11 @@ pnpm build
 pnpm preview
 ```
 
-Open the URL printed by `pnpm preview`. The files in `out/` can be hosted by any static server at the root of a domain. If you host the project at a path such as `/cookie-consent-demo/` on GitHub Pages, set Next.js's `basePath` to that path before building.
+Open the URL printed by `pnpm preview`. The files in `out/` can be hosted by any static server at the root of a domain.
 
 ## Preview builds on GitHub
 
-The **Static preview** workflow runs on pull requests and pushes to `main`. You can also start it from **Actions > Static preview > Run workflow**. The workflow checks Biome and TypeScript, builds the site, runs the Playwright suite, and saves the static files as the `cookie-consent-preview` artifact for 14 days.
+The **Static preview and Pages** workflow runs on pull requests and pushes to `main`. You can also start it from **Actions > Static preview and Pages > Run workflow**. The workflow checks Biome and TypeScript, builds the site, runs the Playwright suite, and saves the static files as the `cookie-consent-preview` artifact for 14 days.
 
 To view a build, download the artifact from the workflow run, extract it, and run this command from the directory containing `index.html`.
 
@@ -32,7 +32,13 @@ To view a build, download the artifact from the workflow run, extract it, and ru
 python3 -m http.server 4173
 ```
 
-Open [http://localhost:4173](http://localhost:4173). The artifact is a downloadable build. A public preview URL requires a static host such as GitHub Pages.
+Open [http://localhost:4173](http://localhost:4173).
+
+## Publish to GitHub Pages
+
+Each push to `main` publishes the site after the checks pass. The workflow reads the site's path from GitHub Pages and passes it to Next.js as `PAGES_BASE_PATH`, so the JavaScript and styles load under `/cookie-consent-demo/`. Pull requests get a downloadable preview build.
+
+[Open the public site](https://vladislavdegtyarenko.github.io/cookie-consent-demo/).
 
 ## Verify the consent flow
 
